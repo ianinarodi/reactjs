@@ -11,10 +11,10 @@ function NavBar() {
       <ul className="nav-list">
       <h2> {tiendaTitulo} </h2>
         <li>
-          <a>Libros en Inglés</a>
+          <a>Libros en Inglés </a>
         </li>
         <li>
-          <a>Cursos de Inglés</a>
+          <a>Cursos de Inglés </a>
         </li>
         <li>
           <CartWidget />
