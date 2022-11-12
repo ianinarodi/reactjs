@@ -1,7 +1,8 @@
 import React from "react";
+import IconSVG from "./IconSVG";
 
 function CartWidget() {
-  return <div></div>;
+  return <IconSVG />;
 }
 
 export default CartWidget;
