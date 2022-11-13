@@ -6,7 +6,7 @@ const products = [
     stock: 10,
     Category: "Books",
     body: "Take your business to the next level by improving your accuracy and fluency as regards English language focused on business and convey professionalism in current business situations",
-    thumbnail: "https://cdn.pixabay.com/photo/2015/11/28/11/26/uk-1067140_960_720.jpg"
+    thumbnail: "/images/book"
     }, 
     
     {
@@ -16,7 +16,7 @@ const products = [
     stock: 8,
     category: "Books",
     body:  "Start familiarizing with the English language in the best possible way by addressing the most common mistakes beginners usually have and by overcoming various challenges in your written and spoken performance",
-    thumbnail: "https://cdn.pixabay.com/photo/2015/11/28/11/26/uk-1067140_960_720.jpg"
+    thumbnail: "/images/book"
     
     }, 
     
@@ -27,7 +27,7 @@ const products = [
      stock: 15,
      category: "Books",
      body: "Feel confident during your trips around the globe whenever you encounter situations where you have to communicate with native English speakers in different countries by learning all the most frequent and common interactional language tools ",
-     thumbnail:"https://cdn.pixabay.com/photo/2015/11/28/11/26/uk-1067140_960_720.jpg"
+     thumbnail:"/images/book"
      }, 
     
       {
@@ -37,7 +37,7 @@ const products = [
     stock: 5,
     category: "Books",
      body:  "If you are eager to pass international exams to live or study abroad, this book is perfect to fulfil those needs and prepare you to overcome exam situations that require specific strategies",
-     thumbnail: "https://cdn.pixabay.com/photo/2015/11/28/11/26/uk-1067140_960_720.jpg"
+     thumbnail: "/images/book"
     },
    
     {
@@ -47,7 +47,7 @@ const products = [
      stock: 4,
      category: "Courses" ,
      body: "Este es un curso para descagarte de forma online y aprender inglés con videos y actividades armados por nuestros profesores. Tiene un total del 10 modulos, con 5 secciones cada uno." ,
-     thumbnail: "https://media.istockphoto.com/vectors/learn-english-online-poster-flat-vector-template-vector-id1342273927?s=612x612"
+     thumbnail: "/images/course"
    },
       
        {
@@ -57,7 +57,7 @@ const products = [
        stock: 6,
        category: "Courses",
         body:  "Este es un curso para descagarte de forma online y aprender inglés con videos y    actividades armados por nuestros profesores. Tiene un total del 10 modulos, con 5 secciones cada uno. ",
-        thumbnail: "https://media.istockphoto.com/vectors/learn-english-online-poster-flat-vector-template-vector-id1342273927?s=612x612"
+        thumbnail: "/images/course"
        },
     
        {
@@ -67,8 +67,31 @@ const products = [
        stock: 3,
        category: "Courses",
         body:  "Este es un curso para descagarte de forma online y aprender inglés con videos y actividades armados por nuestros profesores. Tiene un total del 10 modulos, con 5 secciones cada uno.",
-        thumbnail: "https://media.istockphoto.com/vectors/learn-english-online-poster-flat-vector-template-vector-id1342273927?s=612x612"
+        thumbnail: "/images/course"
        },
     ];
 
-export default products;
+    export default function ItemList(categoryParam) {
+      return new Promise ( (res) =>{
+          if (categoryParam === undefined){
+              setTimeout(() => {
+                  res(products);
+              }, 2000);
+          } else {
+              setTimeout(() => {
+                  let filtrados = products.filter((item) => item.category === categoryParam)
+                  res(filtrados);
+              }, 2000);
+          } 
+      });
+  }
+  
+  export function SingleItem(idParam) {
+      return new Promise ((resolve, rejected) => {
+          let product = products.find((p) => p.id === Number(idParam))
+          if (product === undefined) rejected("Producto no existe")
+          setTimeout(() => {
+              resolve(product)
+          }, 2000);
+      })
+  }

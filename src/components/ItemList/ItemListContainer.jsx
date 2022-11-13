@@ -1,28 +1,29 @@
 import { useState, useEffect } from "react";
-
 import Item from "./Item";
-import "./itemlist.css";
 import getItems from "../../Services/mockService";
-
+import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
-function ItemListContainer() {
-  const [products, setProducts] = useState([]);
-  const { idCategory } = useParams();
 
-  async function getItemsAsync() {
-    let respuesta = await getItems(idCategory);
+export default function ItemListContainer() {
+  const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
+
+  /*async function getItemsAsync() {
+    let respuesta = await getItems(categoryId);
     setProducts(respuesta);
-  }
+  }*/
 
   useEffect(() => {
-    getItemsAsync();
+    getItems(categoryId).then((res) => {
+      setProducts(res);
+    });
     return () => {
       console.log("Componente desmontado");
     };
-  }, [idCategory]);
+  }, [categoryId]);
 
-  return (
+   /*return (
     <div className="item-list">
       {products.map((product) => {
         return (
@@ -40,6 +41,9 @@ function ItemListContainer() {
     </div>
   );
 }
+*/
 
-export default ItemListContainer; 
+return <ItemList products={products}/>}
+
+
       
