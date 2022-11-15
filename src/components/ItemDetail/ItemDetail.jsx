@@ -1,33 +1,35 @@
 import "./itemdetail.css";
 import React from "react";
-import ItemCount from './ItemCount';
-import {Link} from "react-router-dom";
-import products from "../../data/data";
+import ItemCount from "./ItemCount";
 
 
-export default function ItemDetail ({products}) {
-  let {id, thumbnail,body, title, price, description, stock}= products; 
-  return (
-    <div className="row gx-4 gx-lg-5 align-items-center">
-        <div className="col-md-6"><images className="card-img-top mb-5 mb-md-0"
-         src={`${thumbnail}`}
-          alt={title} /></div>
-        <div className="col-md-6">
-          <div className="small mb-1">SKU: BST-{id}</div>
-          <h1 className="display-5 fw-bolder">{title}</h1>
-          <div className="fs-5 mb-5">
-            <span className="text-decoration-line-through">${price}</span>
-            <span>${price}</span>
-          </div>
-          <p className="lead">{body}</p>
-          <div className="d-flex">
-            <ItemCount max={stock}/>
-          </div>
+export default function ItemDetail({ product }) {
+    let { id, thumbnail, body, title, price, stock } = product;
+    return (
+        <div className='row gx-4 gx-lg-5 align-items-center'>
+            <div className='col-md-6'>
+                <img
+                    className='card-img-top mb-5 mb-md-0'
+                    src={thumbnail}
+                    alt={title}
+                />
+            </div>
+            <div className='col-md-6'>
+                <div className='small mb-1'>{id}</div>
+                <h1 className='display-5 fw-bolder'>{title}</h1>
+                <div className='fs-5 mb-5'>
+                    <span className='text-decoration-line-through'>
+                        ${price}
+                    </span>
+                </div>
+                <p className='lead'>{body}</p>
+                <div className='d-flex'>
+                    <ItemCount max={stock} />
+                </div>
+            </div>
         </div>
-      </div>
-  )
+    );
 }
-
 
 
 /*function ItemDetail({ product }) {

@@ -6,7 +6,7 @@ const products = [
     stock: 10,
     Category: "Books",
     body: "Take your business to the next level by improving your accuracy and fluency as regards English language focused on business and convey professionalism in current business situations",
-    thumbnail: "/images/book"
+    thumbnail: "/images/book.jpg"
     }, 
     
     {
@@ -16,7 +16,7 @@ const products = [
     stock: 8,
     category: "Books",
     body:  "Start familiarizing with the English language in the best possible way by addressing the most common mistakes beginners usually have and by overcoming various challenges in your written and spoken performance",
-    thumbnail: "/images/book"
+    thumbnail: "/images/book.jpg"
     
     }, 
     
@@ -27,7 +27,7 @@ const products = [
      stock: 15,
      category: "Books",
      body: "Feel confident during your trips around the globe whenever you encounter situations where you have to communicate with native English speakers in different countries by learning all the most frequent and common interactional language tools ",
-     thumbnail:"/images/book"
+     thumbnail:"/images/book.jpg"
      }, 
     
       {
@@ -37,7 +37,7 @@ const products = [
     stock: 5,
     category: "Books",
      body:  "If you are eager to pass international exams to live or study abroad, this book is perfect to fulfil those needs and prepare you to overcome exam situations that require specific strategies",
-     thumbnail: "/images/book"
+     thumbnail: "/images/book.jpg"
     },
    
     {
@@ -47,7 +47,7 @@ const products = [
      stock: 4,
      category: "Courses" ,
      body: "Este es un curso para descagarte de forma online y aprender inglés con videos y actividades armados por nuestros profesores. Tiene un total del 10 modulos, con 5 secciones cada uno." ,
-     thumbnail: "/images/course"
+     thumbnail: "/images/course.jpg"
    },
       
        {
@@ -57,7 +57,7 @@ const products = [
        stock: 6,
        category: "Courses",
         body:  "Este es un curso para descagarte de forma online y aprender inglés con videos y    actividades armados por nuestros profesores. Tiene un total del 10 modulos, con 5 secciones cada uno. ",
-        thumbnail: "/images/course"
+        thumbnail: "/images/course.jpg"
        },
     
        {
@@ -67,11 +67,11 @@ const products = [
        stock: 3,
        category: "Courses",
         body:  "Este es un curso para descagarte de forma online y aprender inglés con videos y actividades armados por nuestros profesores. Tiene un total del 10 modulos, con 5 secciones cada uno.",
-        thumbnail: "/images/course"
+        thumbnail: "/images/course.jpg"
        },
     ];
 
-    export default function ItemList(categoryParam) {
+    export default function filtroProductosPorCategoria(categoryParam) {
       return new Promise ( (res) =>{
           if (categoryParam === undefined){
               setTimeout(() => {
