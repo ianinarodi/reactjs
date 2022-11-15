@@ -1,15 +1,15 @@
 import {useState, useEffect} from 'react'
 import Item from './Item'
-import ItemList from './ItemList'
 import "./itemlist.css";
+import filtroProductosPorCategoria from "../../data/data";
 import { useParams } from 'react-router-dom'
 
-export default function ItemListContainer() {
+export default function ItemList() {
   const [products, setProducts] = useState([])
   const { categoryId } = useParams()
 
   useEffect(()=>{
-    ItemList(categoryId).then((res)=>{
+    filtroProductosPorCategoria(categoryId).then((res)=>{
       setProducts(res)}
     )
   },[categoryId])
