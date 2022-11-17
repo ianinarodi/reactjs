@@ -1,4 +1,4 @@
-const products = [
+export const products = [
     {
     id: 1,
     title: "Inglés para negocios",
@@ -71,7 +71,31 @@ const products = [
        },
     ];
 
-    export default function filtroProductosPorCategoria(categoryParam) {
+
+// creamos la función que va a recibir un parámetro
+export const getProductsByCategory = (category) => {
+    //retornamos una nueva promesa 
+      return new Promise((res) => {
+    // creamos una variable donde vamos a filtrar las categorías de los productos a través de método filter
+          const productos = products.filter(product => product.category === category);
+          setTimeout(() => {
+    // nos traemos los productos
+              res(productos);
+          }, 2000);
+      });
+    }
+    
+    //misma premisa, pero nos traemos todos los productos, sin ningún tipo de filtro.
+    export const getProducts = () => {
+      return new Promise((res) => {
+          setTimeout(() => {
+              res(products);
+          }, 2000);
+      });
+    }
+
+
+  /*  export default function filtroProductosPorCategoria(categoryParam) {
       return new Promise ( (res) =>{
           if (categoryParam === undefined){
               setTimeout(() => {
@@ -94,4 +118,4 @@ const products = [
               resolve(product)
           }, 2000);
       })
-  }
+  }*/
