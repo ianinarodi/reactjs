@@ -24,22 +24,6 @@ setCart(newCart)
     }
  }
  
- // opcion 2:  newCart.push(...product, count) OTRA FORMA DE USAR EL SPREAD PERO CON SUGAR SINTAX
- 
-
-/*function clear(){
-
-}
-
-function removeItem(idRemove){
-cart.filter
-}
-
-function priceInCart (){
-
-}
-
-*/
 
 function itemsInCart (){
    let total = 0;

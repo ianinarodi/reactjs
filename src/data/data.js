@@ -71,27 +71,24 @@ const products = [
        },
     ];
 
-    export default function filtroProductosPorCategoria(categoryParam) {
-      return new Promise ( (res) =>{
-          if (categoryParam === undefined){
-              setTimeout(() => {
-                  res(products);
-              }, 2000);
-          } else {
-              setTimeout(() => {
-                  let filtrados = products.filter((item) => item.category === categoryParam)
-                  res(filtrados);
-              }, 2000);
-          } 
-      });
-  }
-  
-  export function SingleItem(idParam) {
-      return new Promise ((resolve, rejected) => {
-          let product = products.find((p) => p.id === Number(idParam))
-          if (product === undefined) rejected("Producto no existe")
+ // creamos la función que va a recibir un parámetro
+export const getProductsByCategory = (category) => {
+    //retornamos una nueva promesa 
+      return new Promise((res) => {
+    // creamos una variable donde vamos a filtrar las categorías de los productos a través de método filter
+          const productos = products.filter(product => product.category === category);
           setTimeout(() => {
-              resolve(product)
+    // nos traemos los productos
+              res(productos);
           }, 2000);
-      })
-  }
+      });
+    }
+    
+    //misma premisa, pero nos traemos todos los productos, sin ningún tipo de filtro.
+    export const getProducts = () => {
+      return new Promise((res) => {
+          setTimeout(() => {
+              res(products);
+          }, 2000);
+      });
+    }
