@@ -10,8 +10,8 @@ export function CartContextProvider({children}){
         let itemAlreadyInCart =cart.findIndex(
             (itemsInCart) => itemsInCart.id === product.id
         );
- /*let newCart = cart.map(item => item)*/
- //opcion 1
+
+        
  let newCart = [...cart];
 
  if (itemAlreadyInCart !== -1){
