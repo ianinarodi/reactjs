@@ -1,9 +1,24 @@
 import "./itemdetail.css";
-import React from "react";
-import ItemCount from "./ItemCount";
+<<<<<<< HEAD
+import { useContext } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+=======
+import ItemCount from "../ItemCount/ItemCount";
+import { useContext } from "react";
+>>>>>>> master
+import { cartContext } from "../../context/cartContext";
 
+function ItemDetail({ product }) {
+  const { addToCart } = useContext(cartContext);
 
+<<<<<<< HEAD
 export default function ItemDetail({ product }) {
+  const {addToCart} = useContext(cartContext)
+  function onAddToCart(count){
+    alert('Agregaste ${count} items al carrito!');
+    addToCart(product, count)
+  }
+
     let { id, thumbnail, body, title, price, stock } = product;
     return (
         <div className='row gx-4 gx-lg-5 align-items-center'>
@@ -24,7 +39,7 @@ export default function ItemDetail({ product }) {
                 </div>
                 <p className='lead'>{body}</p>
                 <div className='d-flex'>
-                    <ItemCount max={stock} />
+                    <ItemCount max={ stock} />
                 </div>
             </div>
         </div>
@@ -33,9 +48,12 @@ export default function ItemDetail({ product }) {
 
 
 /*function ItemDetail({ product }) {
+=======
+>>>>>>> master
   function onAddToCart(count) {
     alert(`Agregaste ${count} items al carrito!`);
-    setState(count) 
+    /* setState(count) */
+    addToCart(product, count);
   }
 
   return (
@@ -45,16 +63,12 @@ export default function ItemDetail({ product }) {
       </div>
       <div className="card-detail_detail">
         <h2>{product.title}</h2>
-        <p>{product.body}</p>
+        <p>{product.description}</p>
         <h4 className="priceTag">$ {product.price}</h4>
       </div>
-      <ItemCount 
-        onAddToCart={onAddToCart} 
-        stock={product.stock} 
-      />
-      {ItemCount( {onAddToCart, stock}) }
+      <ItemCount onAddToCart={onAddToCart} stock={product.stock} />
     </div>
   );
 }
 
-export default ItemDetail; */
+export default ItemDetail;

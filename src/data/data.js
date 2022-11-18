@@ -1,4 +1,4 @@
-const products = [
+export const products = [
     {
     id: 1,
     title: "Inglés para negocios",
@@ -84,14 +84,13 @@ const products = [
               }, 2000);
           } 
       });
-  }
-  
-  export function SingleItem(idParam) {
-      return new Promise ((resolve, rejected) => {
-          let product = products.find((p) => p.id === Number(idParam))
-          if (product === undefined) rejected("Producto no existe")
+    }
+    
+    //misma premisa, pero nos traemos todos los productos, sin ningún tipo de filtro.
+    export const getProducts = () => {
+      return new Promise((res) => {
           setTimeout(() => {
-              resolve(product)
+              res(products);
           }, 2000);
       })
   }
