@@ -1,4 +1,6 @@
 import products from "../data/data";
+import getProductsByCategory from "../data/data";
+import getProducts from "../data/data";
 
 function getItems(idCategory) {
   return new Promise((resolve) => {
