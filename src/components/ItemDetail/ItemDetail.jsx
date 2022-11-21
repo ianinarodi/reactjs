@@ -7,7 +7,7 @@ import { cartContext } from "../../context/cartContext";
 export default function ItemDetail({ product }) {
   const {addToCart} = useContext(cartContext)
   function onAddToCart(count){
-    alert('Agregaste ${count} items al carrito!');
+    alert(`Agregaste ${count} items al carrito!`);
     addToCart(product, count)
   }
 
@@ -31,7 +31,7 @@ export default function ItemDetail({ product }) {
                 </div>
                 <p className='lead'>{body}</p>
                 <div className='d-flex'>
-                    <ItemCount max={ stock} />
+                    <ItemCount max={ stock} onAddToCart={onAddToCart} />  
                 </div>
             </div>
         </div>
@@ -39,29 +39,3 @@ export default function ItemDetail({ product }) {
 }
 
 
-/*function ItemDetail({ product }) {
-  function onAddToCart(count) {
-    alert(`Agregaste ${count} items al carrito!`);
-    setState(count) 
-  }
-
-  return (
-    <div className="card-detail">
-      <div className="card-detail_img">
-        <img src={product.imgurl} alt="Product img" />
-      </div>
-      <div className="card-detail_detail">
-        <h2>{product.title}</h2>
-        <p>{product.body}</p>
-        <h4 className="priceTag">$ {product.price}</h4>
-      </div>
-      <ItemCount 
-        onAddToCart={onAddToCart} 
-        stock={product.stock} 
-      />
-      {ItemCount( {onAddToCart, stock}) }
-    </div>
-  );
-}
-
-export default ItemDetail; */

@@ -92,3 +92,15 @@ export const getProductsByCategory = (category) => {
           }, 2000);
       });
     }
+
+    // en este caso, la función va a recibir por parámetro un id. 
+    export const getProduct = (id) => {
+      //va a retornar una promesa
+            return new Promise((resolve) => {
+      // y vamos a crear una variable, y usando el método find vamos a filtrar un producto. 
+                const prod = products.find(p => p.id === parseInt(id))
+                setTimeout(() => {
+                    resolve(prod)
+                }, 2000)
+            })
+          }

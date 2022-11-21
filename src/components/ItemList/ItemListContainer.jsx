@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import {getProducts, getProductsByCategory} from "../../data"
+import {getProducts, getProductsByCategory} from "../../data/data";
 
 
 export default function ItemListContainer() {
