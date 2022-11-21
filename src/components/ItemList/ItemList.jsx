@@ -4,16 +4,7 @@ import "./itemlist.css";
 import filtroProductosPorCategoria from "../../data/data";
 import { useParams } from 'react-router-dom'
 
-export default function ItemList() {
-  const [products, setProducts] = useState([])
-  const { categoryId } = useParams()
-
-  useEffect(()=>{
-    filtroProductosPorCategoria(categoryId).then((res)=>{
-      setProducts(res)}
-    )
-  },[categoryId])
-
+export default function ItemList({ products }) {
   return (
     <section className="py-5" style={{minHeight: '100vh'}}>
       <div className="container px-4 px-lg-5 mt-5">
@@ -34,5 +25,4 @@ export default function ItemList() {
         </div>
       </div>
     </section>      
-  )
-}
+  )}

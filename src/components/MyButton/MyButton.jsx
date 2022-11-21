@@ -6,7 +6,7 @@ function MyButton(props) {
 
   function handleClick() {
     setColorBtn("#555");
-   /* props.onTouchButton && props.onTouchButton(); */
+    props.onTouchButton && props.onTouchButton();//esto estaba comentado,no se xq 
   }
 
   return (
