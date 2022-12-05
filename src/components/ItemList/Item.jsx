@@ -1,29 +1,39 @@
 import React from "react";
 import MyButton from "../MyButton/MyButton";
 import ToggleButton from "../ToggleButton/ToggleButton";
-import "./Item.css";
+import "./item.css";
 import { Link } from "react-router-dom";
 
-export default function Item({ title, price, category, thumbnail, id }) {
+function Item({ title, thumbnail, price, stock, color, id, discount }) {
   const urlDetail = `/detail/${id}`;
+  const stylePrice = { color: discount && "pink" };
+
   return (
-    <div className="col mb-5" key={id}>
-      <div className="card h-100">
-        <Link to="/detalle">
-        </Link>
-        <img className="card-img-top" src={thumbnail} alt={title} />        
-        <div className="card-body p-4">
-          <div className="text-center">
-            <h5 className="fw-bolder">{title}</h5>
-            ${price}
-          </div>
-        </div>
-        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-          <div className="text-center">
-            <Link to={urlDetail} className="btn btn-outline-dark mt-3 px-4" id={id} href="#">Ver Producto</Link>
-          </div>
-        </div>
+    <div className="card">
+      <ToggleButton icon="♥" />
+      <div className="card-img">
+        <img src={thumbnail} alt={title} />
       </div>
+      <div className="card_detail">
+        <h3>{title}</h3>
+        <h4 style={stylePrice} className="priceTag">
+          $ {price}
+        </h4>
+        {/* 3. Operador && */}
+        {discount && <small>Descuento: {discount}</small>}
+        {stock <= 0 && <span>Sin stock disponible</span>}
+      </div>
+
+      <Link to={urlDetail}>
+        <MyButton
+          onTouchButton={() => console.log("click")}
+          colorBtn={stock <= 0 && "red"}
+        >
+          Ver más
+        </MyButton>
+      </Link>
     </div>
-  )
+  );
 }
+
+export default Item;

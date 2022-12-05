@@ -1,70 +1,72 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <br>
+  <a href="https://www.instagram.com/brainlingual/?igshid=YmMyMTA2M2Y%3D"><img src="https://raw.githubusercontent.com/ianinarodi/Repo-en-github-animaciones-RODI/blob/3c95cc13dabfc12e70de38623e4c799526c8eeee/media/logobrainlingual.jpeg" alt="Brainlingual" width="200"></a>
+  <br>
+</h1>
 
-## Available Scripts
 
-In the project directory, you can run:
+<h3 align="center">
+Brainlingual es un proyecto de tienda online que ofrece productos y servicios para aprender Inglés de forma online.
+  <br>
+</h3>
 
-### `npm start`
+ <br>
+ <h2 align="justify">
+¿Que usé para crear mi proyecto?
+</h2>
+<h3 align="justify">
+React JS, y Firestore
+  <br>
+</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ <br>
+ <h2 align="justify">
+Funciones aplicadas:
+</h2>
+<h3 align="justify">
+Listado de productos total de la pagina, y diferentes rutas para las categorias de productos. Componentes para los listados y productos individuales con imagen y descripcion del mismo. Carrito de compras con formulario que devuelve Id de compra una vez finalizada la misma. Integracion con Firestore.
+  <br>
+</h3>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ <br>
+ <h2 align="justify">
+Comó usar este proyecto:
+</h2>
+<h3 align="justify">
+Con las siguientes instrucciones podras tener una copia de mi proyecto en tu dispositivo local:
 
-### `npm test`
+```bash
+# Clonar este repositorio
+$ git clone https://github.com/ianinarodi/reactjs/tree/entregaFinal
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Entrar a este repositorio
+$ cd entregaFinal
 
-### `npm run build`
+# Instalar dependencias
+$ npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Poner app en funcionamiento
+$ npm start
+```
+</h3>
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h2 align="justify">
+Profesor:
+</h2>
+<h3 align="justify">
+Santiago Salkin
+</h3>
+ <br>
+  <br>
+<h2 align="justify">
+Diseño hecho por:
+</h2>
+<h3 align="justify">
+Ianina Rodi
+</h3>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

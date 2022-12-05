@@ -1,28 +1,26 @@
-import {useState, useEffect} from 'react'
-import Item from './Item'
-import "./itemlist.css";
-import filtroProductosPorCategoria from "../../data/data";
-import { useParams } from 'react-router-dom'
+import React from "react";
+import Item from "./Item";
 
-export default function ItemList({ products }) {
+function ItemList({ products }) {
   return (
-    <section className="py-5" style={{minHeight: '100vh'}}>
-      <div className="container px-4 px-lg-5 mt-5">
-        <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="seccion-cards">
-          {products.map(({id, thumbnail, title, price, category, stock})=>{
-            return(
-              <Item
-                key={id}
-                id={id}
-                thumbnail={thumbnail}
-                title={title}
-                price={price}
-                category={category}
-                stock={stock}/>
-              )
-            }
-          )}
-        </div>
-      </div>
-    </section>      
-  )}
+    <div className="item-list">
+      {products.map((product) => {
+        return (
+          <Item
+            key={product.id}
+            id={product.id}
+            thumbnail={product.thumbnail}
+            title={product.title}
+            price={product.price}
+            stock={product.stock}
+            category={product.category}
+            discount={product.discount}
+            color="pink"
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+export default React.memo(ItemList);

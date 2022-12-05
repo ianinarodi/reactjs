@@ -1,41 +1,41 @@
 import "./itemdetail.css";
-import { useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import { useContext, useState } from "react";
 import { cartContext } from "../../context/cartContext";
+import MyButton from "../MyButton/MyButton";
+import { Link } from "react-router-dom";
 
+function ItemDetail({ product }) {
+  const [isInCart, setIsInCart] = useState(false);
+  const { addToCart } = useContext(cartContext);
 
-export default function ItemDetail({ product }) {
-  const {addToCart} = useContext(cartContext)
-  function onAddToCart(count){
-    alert(`Agregaste ${count} items al carrito!`);
-    addToCart(product, count)
+  function onAddToCart(count) {
+    setIsInCart(count);
+    addToCart(product, count);
   }
 
-    let { id, thumbnail, body, title, price, stock } = product;
-    return (
-        <div className='row gx-4 gx-lg-5 align-items-center'>
-            <div className='col-md-6'>
-                <img
-                    className='card-img-top mb-5 mb-md-0'
-                    src={thumbnail}
-                    alt={title}
-                />
-            </div>
-            <div className='col-md-6'>
-                <div className='small mb-1'>{id}</div>
-                <h1 className='display-5 fw-bolder'>{title}</h1>
-                <div className='fs-5 mb-5'>
-                    <span className='text-decoration-line-through'>
-                        ${price}
-                    </span>
-                </div>
-                <p className='lead'>{body}</p>
-                <div className='d-flex'>
-                    <ItemCount max={ stock} onAddToCart={onAddToCart} />  
-                </div>
-            </div>
-        </div>
-    );
+ 
+
+  return (
+    <div className="card-detail">
+      <div className="card-detail_img">
+        <img src={product.thumbnail} alt="Product img" />
+      </div>
+      <div className="card-detail_detail">
+        <h2>{product.title}</h2>
+        <p>{product.description}</p>
+        <h4 className="priceTag">$ {product.price}</h4>
+      </div>
+      {isInCart ? (
+        <Link to="/cart">
+          <MyButton>Ir al Carrito</MyButton>
+        </Link>
+      ) : (
+        <ItemCount onAddToCart={onAddToCart} stock={product.stock} />
+      )}
+    
+    </div>
+  );
 }
 
-
+export default ItemDetail;

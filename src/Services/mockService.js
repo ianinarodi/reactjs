@@ -1,3 +1,4 @@
+/* -------------- esto seria el back end -------------- */
 import products from "../data/data";
 
 function getItems(idCategory) {

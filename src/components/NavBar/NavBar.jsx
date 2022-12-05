@@ -9,7 +9,7 @@ function NavBar() {
       <ul className="nav-list">
         <li>
           <Link to="/">
-            <h2>BRAINLINGUAL</h2>
+            <h2 img src="/images/logobrainlingual.jpg">BRAINLINGUAL - Online Shop</h2>
           </Link>
         </li>
         <li>
