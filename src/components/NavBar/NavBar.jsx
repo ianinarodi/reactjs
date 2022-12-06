@@ -7,9 +7,10 @@ function NavBar() {
   return (
     <nav className="nav-menu">
       <ul className="nav-list">
+        <img className="logo" src="/images/myLogo.jpeg" alt="" />
         <li>
           <Link to="/">
-            <h2 img src="/images/logobrainlingual.jpg">BRAINLINGUAL - Online Shop</h2>
+            <h2>BRAINLINGUAL - Online Shop</h2>
           </Link>
         </li>
         <li>
