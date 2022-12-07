@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import MyButton from "../MyButton/MyButton";
 import "./cartview.css";
 import CartForm from "./CartForm";
+import { CartContextProvider } from "../../context/cartContext";
 
 function CartView() {
-  const { cart, removeItem, clear, priceInCart } = useContext(cartContext);
+  const { cart, removeItem, clearCart, priceInCart } = useContext(cartContext);
   let navigate = useNavigate();
 
 
@@ -47,7 +48,8 @@ function CartView() {
         ))}
       </div>
       <CartForm onSubmit={handleCheckout} />
-      <MyButton>Vaciar carrito</MyButton>
+      <MyButton onClick={clearCart}>Vaciar carrito</MyButton>
+      
     </div>
   );
 }

@@ -39,9 +39,6 @@ export function CartContextProvider({ children }) {
     return totalPrice;
   }
 
-  function clear() {
-    /* vaciar el estado */
-  }
 
   function removeItem(idRemove) {
     console.log("Eliminando el item:", idRemove);
@@ -51,17 +48,11 @@ export function CartContextProvider({ children }) {
     /* cart.filter -> Filtrar todos los items con un ID diferente a "idRemove"   */
   }
 
-  function alreadyInCart(id) {
-    /* return true/false */
-  }
 
-  /*  const value = {
-    saludoContext,
-    itemsInCart,
-    cart,
-  }; */
+function clearCart(){
+setCart([]) 
+}
 
- 
   return (
     <cartContext.Provider
       value={{
@@ -70,6 +61,7 @@ export function CartContextProvider({ children }) {
         saludoContext,
         itemsInCart,
         removeItem,
+        clearCart,
         priceInCart,
       }}
     >
@@ -77,3 +69,4 @@ export function CartContextProvider({ children }) {
     </cartContext.Provider>
   );
 }
+
