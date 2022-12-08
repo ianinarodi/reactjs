@@ -6,15 +6,18 @@ import { Link } from "react-router-dom";
 
 function CartWidget() {
   const miContext = useContext(cartContext);
+  const checkItem = miContext.itemsInCart()
 
   return (
     <div>
       <Link to="/cart">
         <IconSVG />
+        {checkItem !== 0 && <span>{checkItem}</span> }
       </Link>
-      <span style={{ color: "red" }}>{miContext.itemsInCart()}</span>
     </div>
   );
 }
 
 export default CartWidget;
+
+// <span style={{ color: "red" }}>{miContext.itemsInCart()}</span> 

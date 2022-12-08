@@ -39,7 +39,6 @@ export function CartContextProvider({ children }) {
     return totalPrice;
   }
 
-
   function removeItem(idRemove) {
     console.log("Eliminando el item:", idRemove);
     const newCart = [...cart];
