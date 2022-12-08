@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import MyButton from "../MyButton/MyButton";
 import "./cartview.css";
 import CartForm from "./CartForm";
+import {collection,addDoc} from "firebase/firestore";
 
 
 function CartView() {
@@ -25,7 +26,15 @@ function CartView() {
       items: cart,
       total: 0,
       date: new Date(),
-    };
+      const collectionRef = collection(DB, "orders")}
+      addDoc(collectionRef, order).then(({ id }) => {
+      navigate(`/thankyou/${id}`);
+      console.log(id)
+    })
+      .then(() => {
+        clearCart()
+      })
+
 
     const orderId = await createOrder(order);
     navigate(`/thankyou/${orderId}`);
