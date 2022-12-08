@@ -40,8 +40,8 @@ function CartView() {
             <img src={item.thumbnail} alt={item.title} />
             <h2>{item.title}</h2>
             <h4>${item.price}</h4>
-            <h4>unidades: {item.count}</h4>
-            <h4>Precio Final:${getTotalPrice()}</h4>
+            <h4>Unidades: {item.count}</h4>
+            <h4>Precio Final: ${getTotalPrice()}</h4>
             <MyButton onTouchButton={() => removeItem(item.id)} colorBtn="red">
               X
             </MyButton>
@@ -50,7 +50,6 @@ function CartView() {
       </div>
       <CartForm onSubmit={handleCheckout} />
       <button onClick={() => clearCart()}>Vaciar carrito</button>
-      
     </div>
   );
 }

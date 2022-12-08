@@ -8,7 +8,6 @@ import Loader from "../Loaders/Loader";
 
 function ItemListContainer() {
   const [products, setProducts] = useState(null);
-  /* const [isLoading, setIsLoading] = useState(true) */
   const { idCategory } = useParams();
 
   async function getItemsAsync() {
@@ -25,7 +24,6 @@ function ItemListContainer() {
     getItemsAsync();
   }, [idCategory]);
 
-  // 1. Render Condicional con operador ternario
   return (
     <div className="catalogo">
       {products ? <ItemList products={products} /> : <Loader />}

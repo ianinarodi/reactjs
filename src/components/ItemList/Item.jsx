@@ -19,7 +19,6 @@ function Item({ title, thumbnail, price, stock, color, id, discount }) {
         <h4 style={stylePrice} className="priceTag">
           $ {price}
         </h4>
-        {/* 3. Operador && */}
         {discount && <small>Descuento: {discount}</small>}
         {stock <= 0 && <span>Sin stock disponible</span>}
       </div>

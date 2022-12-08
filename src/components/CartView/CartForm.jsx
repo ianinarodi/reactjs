@@ -1,13 +1,16 @@
-import { useState } from "react";
-import MyButton from "../MyButton/MyButton";
-import "./cartform.css"
+import { useState, useContext } from "react";
+import "./cartform.css";
+import { cartContext } from "../../context/cartContext";
+
 
 export default function CartForm(props) {
+  const {clearCart} = useContext(cartContext);
   const [data, setData] = useState({
     name: "",
     email: "",
     phone: "",
   });
+
 
   function onInputChange(evt) {
     let nameInput = evt.target.name;
@@ -19,14 +22,14 @@ export default function CartForm(props) {
 
   function onSubmit(evt) {
     if (data.name.length === 0) return;
-
     evt.preventDefault();
     props.onSubmit(evt, data);
+    onSubmit={clearCart}
   }
+  
 
   return (
     <form className="formulario" onSubmit={onSubmit}>
-      {/* Podriamos convertir los inputs en Componentes */}
       <div style={{ display: "flex", marginBottom: 8 }}>
         <label htmlFor="name" style={{ width: "100px", marginRight: 4 }}>
           Nombre:
@@ -66,12 +69,13 @@ export default function CartForm(props) {
         />
       </div>
 
-      <button
+      <button onClick={() => clearCart()}
         disabled={data.name === "" || data.phone === "" || data.email === ""}
         type="submit"
       >
         Finalizar Compra 😉
       </button>
     </form>
+    
   );
 }
