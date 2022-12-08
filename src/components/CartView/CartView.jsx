@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import MyButton from "../MyButton/MyButton";
 import "./cartview.css";
 import CartForm from "./CartForm";
-import { CartContextProvider } from "../../context/cartContext";
+
 
 function CartView() {
-  const { cart, removeItem, clearCart, priceInCart } = useContext(cartContext);
+  const { cart, removeItem, clearCart, priceInCart, getTotalPrice } = useContext(cartContext);
   let navigate = useNavigate();
 
 
@@ -41,6 +41,7 @@ function CartView() {
             <h2>{item.title}</h2>
             <h4>${item.price}</h4>
             <h4>unidades: {item.count}</h4>
+            <h4>Precio Final: {getTotalPrice()}</h4>
             <MyButton onTouchButton={() => removeItem(item.id)} colorBtn="red">
               X
             </MyButton>
@@ -48,7 +49,7 @@ function CartView() {
         ))}
       </div>
       <CartForm onSubmit={handleCheckout} />
-      <MyButton onClick={clearCart}>Vaciar carrito</MyButton>
+      <button onClick={() => clearCart()}>Vaciar carrito</button>
       
     </div>
   );

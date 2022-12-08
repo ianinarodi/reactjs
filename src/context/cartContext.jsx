@@ -45,13 +45,15 @@ export function CartContextProvider({ children }) {
     const newCart = [...cart];
     newCart.pop();
     setCart(newCart);
-    /* cart.filter -> Filtrar todos los items con un ID diferente a "idRemove"   */
   }
 
+  const getTotalPrice = () => {
+    return cart.reduce((prev, act) => prev + act.count * act.price, 0);
+ }
 
-function clearCart(){
-setCart([]) 
-}
+ function clearCart(){
+    setCart([]) 
+    }
 
   return (
     <cartContext.Provider
@@ -63,6 +65,7 @@ setCart([])
         removeItem,
         clearCart,
         priceInCart,
+        getTotalPrice
       }}
     >
       {children}
