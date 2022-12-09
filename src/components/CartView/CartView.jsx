@@ -5,41 +5,50 @@ import { useNavigate } from "react-router-dom";
 import MyButton from "../MyButton/MyButton";
 import "./cartview.css";
 import CartForm from "./CartForm";
-import {collection,addDoc} from "firebase/firestore";
-
+import { collection, addDoc } from "firebase/firestore";
+import { DB } from "../../Services/firestore";
+import ThankYou from "../ThankYou/ThankYou";
 
 function CartView() {
-  const { cart, removeItem, clearCart, priceInCart, getTotalPrice, itemsInCart } = useContext(cartContext);
-  let navigate = useNavigate();
+    const {
+        cart,
+        removeItem,
+        clearCart,
+        priceInCart,
+        getTotalPrice,
+        itemsInCart,
+    } = useContext(cartContext);
+    let navigate = useNavigate();
 
+    if (cart.length === 0)
+        return (
+            <div className='cart-container'>
+                <h1>Carrito Vacío</h1>
+            </div>
+        );
 
-  if (cart.length === 0)
-    return (
-      <div className="cart-container">
-        <h1>Carrito Vacío</h1>
-      </div>
-    );
+    async function handleCheckout(evt, data) {
+        const order = {
+            buyer: data,
+            items: cart,
+            total: 0,
+            date: new Date(),
+          };
 
-  async function handleCheckout(evt, data) {
-    const order = {
-      buyer: data,
-      items: cart,
-      total: 0,
-      date: new Date(),
-      const collectionRef = collection(DB, "orders")}
-      addDoc(collectionRef, order).then(({ id }) => {
-      navigate(`/thankyou/${id}`);
-      console.log(id)
-    })
-      .then(() => {
-        clearCart()
-      })
+        const orderId = await createOrder(order);
+        navigate(`/thankyou/${orderId}`);
 
+        const collectionRef = collection(DB, "orders");
+        addDoc(collectionRef, order)
+            .then(({ id }) => {
+                navigate(`/thankyou/${id}`);
+                console.log(id);
+            })
+            .then(() => {
+                clearCart();
+            });
 
-    const orderId = await createOrder(order);
-    navigate(`/thankyou/${orderId}`);
-  
-  }
+    }
 
   return (
     <div className="cart-container">
