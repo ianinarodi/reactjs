@@ -19,16 +19,15 @@ export default function CartForm(props) {
     setData(newData);
   }
 
-  function onSubmit(evt) {
+  function onSubmit2(evt) {
     if (data.name.length === 0) return;
     evt.preventDefault();
     props.onSubmit(evt, data);
-    onSubmit={clearCart}
   }
   
 
   return (
-    <form className="formulario" onSubmit={onSubmit}>
+    <form className="formulario" onSubmit={onSubmit2}>
       <div style={{ display: "flex", marginBottom: 8 }}>
         <label htmlFor="name" style={{ width: "100px", marginRight: 4 }}>
           Nombre:
@@ -68,7 +67,7 @@ export default function CartForm(props) {
         />
       </div>
 
-      <button onClick={() => clearCart()}
+      <button 
         disabled={data.name === "" || data.phone === "" || data.email === ""}
         type="submit"
       >

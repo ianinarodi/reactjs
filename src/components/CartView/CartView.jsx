@@ -28,6 +28,7 @@ function CartView() {
         );
 
     async function handleCheckout(evt, data) {
+      evt.preventDefault();
         const order = {
             buyer: data,
             items: cart,
@@ -35,19 +36,17 @@ function CartView() {
             date: new Date(),
           };
 
-        const orderId = await createOrder(order);
-        navigate(`/thankyou/${orderId}`);
+        // const orderId = await createOrder(order);
+        // navigate(`/thankyou/${orderId}`);
 
         const collectionRef = collection(DB, "orders");
         addDoc(collectionRef, order)
             .then(({ id }) => {
-                navigate(`/thankyou/${id}`);
+                 navigate(`/thankyou/${id}`);
                 console.log(id);
+                clearCart()
             })
-            .then(() => {
-                clearCart();
-            });
-
+            
     }
 
   return (
@@ -72,4 +71,4 @@ function CartView() {
   );
 }
 
-export default CartView;
+export default CartView
