@@ -11,7 +11,6 @@ export default function CartForm(props) {
     phone: "",
   });
 
-
   function onInputChange(evt) {
     let nameInput = evt.target.name;
     let value = evt.target.value;
