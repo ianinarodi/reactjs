@@ -7,7 +7,6 @@ import "./cartview.css";
 import CartForm from "./CartForm";
 import { collection, addDoc } from "firebase/firestore";
 import { DB } from "../../Services/firestore";
-import ThankYou from "../ThankYou/ThankYou";
 
 function CartView() {
     const {
@@ -36,14 +35,10 @@ function CartView() {
             date: new Date(),
           };
 
-        // const orderId = await createOrder(order);
-        // navigate(`/thankyou/${orderId}`);
-
         const collectionRef = collection(DB, "orders");
         addDoc(collectionRef, order)
             .then(({ id }) => {
                  navigate(`/thankyou/${id}`);
-                console.log(id);
                 clearCart()
             })
             

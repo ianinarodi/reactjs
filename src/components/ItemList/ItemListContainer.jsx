@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./itemlist.css";
 import getItems, { getItemsByCategory } from "../../Services/firestore";
-
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import Loader from "../Loaders/Loader";

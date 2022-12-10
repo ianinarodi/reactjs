@@ -18,5 +18,3 @@ function CartWidget() {
 }
 
 export default CartWidget;
-
-// <span style={{ color: "red" }}>{miContext.itemsInCart()}</span> 

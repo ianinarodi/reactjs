@@ -171,8 +171,7 @@ export async function exportArrayToFirestore() {
 
     const collectionRef = collection(DB, "products");
 
-    // for... of
-    // products.map( (item) => {})
+
     for (let item of products) {
       item.index = item.id;
       delete item.id;
