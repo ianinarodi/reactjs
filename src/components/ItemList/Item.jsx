@@ -2,7 +2,7 @@ import React from "react";
 import MyButton from "../MyButton/MyButton";
 import ToggleButton from "../ToggleButton/ToggleButton";
 import { Link } from "react-router-dom";
-import "./item.css";
+import "../ItemDetail/item.css";
 
 function Item({ title, thumbnail, price, stock, color, id, discount }) {
   const urlDetail = `/detail/${id}`;
